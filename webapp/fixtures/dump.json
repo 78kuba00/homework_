@@ -1,0 +1,71 @@
+Tracking file by folder pattern:  migrations
+[
+{
+  "model": "webapp.task",
+  "pk": 1,
+  "fields": {
+    "title": "Task 1",
+    "status": "new",
+    "details": "-",
+    "deadline": null
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 4,
+  "fields": {
+    "title": "Task 2",
+    "status": "in_progress",
+    "details": "-",
+    "deadline": "2022-11-30"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 5,
+  "fields": {
+    "title": "Task 3",
+    "status": "done",
+    "details": "-",
+    "deadline": "2022-11-07"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 7,
+  "fields": {
+    "title": "Task 6 ",
+    "status": "done",
+    "details": "-",
+    "deadline": "2022-11-30"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 8,
+  "fields": {
+    "title": "Task 7",
+    "status": "new",
+    "details": "oipodsnpjnvpds",
+    "deadline": "2023-01-01"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$2ADegKEh7n6vGdMYitreMw$wUnbA+ZLGkpGNeILh2ju7imF71N+3D46WXzjj9LW8tI=",
+    "last_login": "2022-11-07T14:13:35.548Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-11-07T14:09:39.748Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

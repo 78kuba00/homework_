@@ -15,6 +15,7 @@ def create_task(request):
     elif request.method == "POST":
         title = request.POST.get('title')
         status = request.POST.get('status')
+        details = request.POST.get('details')
         deadline = request.POST.get('deadline')
         new_task = Task.objects.create(title=title, status=status, deadline=deadline)
         return render(request, 'task_view.html', {'task': new_task})
