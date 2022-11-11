@@ -2,23 +2,7 @@
 {% block content %}
     <h1>Edit Task</h1>
     <form action="" method="POST">
-        {% csrf_token %}
-        <label class="form-label">Статус:</label>
-        <select class="form-select" name="status" value="{{ task.status }}">
-            {% for value, status in statuses %}
-                <option value="{{ value }}">{{ task.status }}</option>
-            {% endfor %}
-        </select>
-        <br/>
-        <label class="form-label">Название:</label>
-        <input class="form-control" type="text" name="title" value="{{ task.title }}" required>
-        <br/>
-        <label class="form-label">Содержание:</label>
-        <textarea class="form-control" name="details">{{ task.details }}</textarea>
-        <br/>
-         <label class="form-label">Дата выполнения:</label>
-        <input class="form-control" type="text" name="deadline" value="{{ task.deadline }}">
-        <br/>
+        {% include 'partial/form.html' %}
         <input class="btn btn-success" type="submit" value="Edit">
     </form>
 {% endblock %}
