@@ -18,7 +18,7 @@
         <textarea class="form-control" name="details">{{ task.details }}</textarea>
         <br/>
          <label class="form-label">Дата выполнения:</label>
-        <input class="form-control" type="text" name="deadline" value="{{ task.deadline }}">
+        <input class="form-control" type="text" name="deadline" value="{{ task.deadline|default:'' }}">
         <br/>
     <input class="btn btn-success" type="submit" value="{{ button_text }}">
 </html>

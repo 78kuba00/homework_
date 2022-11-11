@@ -87,5 +87,10 @@ def task_delete_view(request, pk):
         task.delete()
         return redirect('index')
 
+# def mass_delete(request):
+#         ids = request.ids
+#         task.delete()
+#         return redirect('index')
+
 
 
