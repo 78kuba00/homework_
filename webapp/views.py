@@ -19,12 +19,25 @@ def create_task(request, *args, **kwargs):
     if request.method == "GET":
         return render(request, "create.html", {'statuses': STATUS_CHOICES})
     elif request.method == "POST":
+        errors = {}
         title = request.POST.get('title')
         status = request.POST.get('status')
         details = request.POST.get('details')
         deadline = request.POST.get('deadline')
         if not deadline:
             deadline = None
+        elif not title:
+            errors['title'] = 'Название не может быть пустым'
+        elif len(title) > 60:
+            errors['title'] = 'Название не можеть быть длиннее 60 символов'
+        elif not details:
+            errors['details'] = 'Содержание не может быть пустым'
+        elif len(details) > 3000:
+            errors['details'] = 'Содержание не можеть быть длиннее 3000 символов'
+        elif not title:
+            errors['title'] = 'Название не может быть пустым'
+        elif len(title) > 60:
+            errors['title'] = 'Название не можеть быть длиннее 60 символов'
         new_task = Task.objects.create(title=title, status=status, details=details, deadline=deadline)
         # url = reverse('task_view', kwargs={'pk':new_task.pk})
         # return HttpResponseRedirect(url)
@@ -55,7 +68,7 @@ def task_view(request, pk):
 def task_edit_view(request, pk):
     task = get_object_or_404(Task, pk=pk)
     if request.method == "GET":
-        return render(request, 'task_edit.html', {'task': task})
+        return render(request, 'task_edit.html', {'task': task, 'statuses': STATUS_CHOICES})
     elif request.method == "POST":
         task.title = request.POST.get('title')
         task.status = request.POST.get('status')
@@ -73,4 +86,6 @@ def task_delete_view(request, pk):
     elif request.method =="POST":
         task.delete()
         return redirect('index')
+
+
 

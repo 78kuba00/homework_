@@ -1,9 +1,13 @@
 {% csrf_token %}
 
 <label class="form-label">Статус:</label>
-        <select class="form-select" name="status" value="{{ task.status }}">
+        <select class="form-select" name="status">
             {% for value, status in statuses %}
-                <option value="{{ value }}">{{ task.status }}</option>
+                <option
+                    {% if task.status == value %}
+                        selected
+                    {% endif %}
+                        value="{{ value }}">{{ status }}</option>
             {% endfor %}
         </select>
         <br/>
@@ -16,4 +20,5 @@
          <label class="form-label">Дата выполнения:</label>
         <input class="form-control" type="text" name="deadline" value="{{ task.deadline }}">
         <br/>
+    <input class="btn btn-success" type="submit" value="{{ button_text }}">
 </html>

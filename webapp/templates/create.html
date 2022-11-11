@@ -2,7 +2,7 @@
 {% block content %}
 <h1>Create Task</h1>
 <form action="" method="POST">
-{% include 'partial/form.html' %}
-    <input class="btn btn-success" type="submit" value="Create">
+{% include 'partial/form.html' with button_text="Create"%}
+{#    <input class="btn btn-success" type="submit" value="Create">#}
 </form>
 {% endblock %}
