@@ -81,11 +81,31 @@ Tracking file by folder pattern:  migrations
   }
 },
 {
+  "model": "webapp.task",
+  "pk": 21,
+  "fields": {
+    "title": "Task 20",
+    "status": "new",
+    "details": "CALLOFDUTY",
+    "deadline": "2023-01-01"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 22,
+  "fields": {
+    "title": "123",
+    "status": "new",
+    "details": "rsxgvjhv",
+    "deadline": null
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$390000$2ADegKEh7n6vGdMYitreMw$wUnbA+ZLGkpGNeILh2ju7imF71N+3D46WXzjj9LW8tI=",
-    "last_login": "2022-11-08T06:47:12.263Z",
+    "last_login": "2022-11-10T09:39:03.961Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",

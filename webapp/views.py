@@ -1,13 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from webapp.models import Task, STATUS_CHOICES
 from django.http import HttpResponseRedirect, HttpResponseNotFound, Http404
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 
 def index_view(request, *args, **kwargs):
     if request.method == "POST":
         task_id = request.GET.get('id')
         task = Task.objects.get(id=task_id)
         task.delete()
+        return redirect('index')
     tasks = Task.objects.all()
     # url = reverse('index', kwargs={tasks})
     # print(url)
@@ -22,6 +23,8 @@ def create_task(request, *args, **kwargs):
         status = request.POST.get('status')
         details = request.POST.get('details')
         deadline = request.POST.get('deadline')
+        if not deadline:
+            deadline = None
         new_task = Task.objects.create(title=title, status=status, details=details, deadline=deadline)
         # url = reverse('task_view', kwargs={'pk':new_task.pk})
         # return HttpResponseRedirect(url)
@@ -39,5 +42,12 @@ def task_view(request, pk):
     task = get_object_or_404(Task, pk=pk)
     context = {'task': task}
     # return HttpResponseRedirect(f'/task?id={task.pk}')
+    return render(request, 'task_view.html', {'task': task})
 
-    return render(request, 'task_view.html', context)
+# class ItemDelete(delete_view):
+#     model=
+# def remove(request, pk):
+#     # task_id = request.GET.get('id')
+#     task = Task.objects.get(pk=pk)
+#     task.delete()
+#     return redirect('index', pk=task.pk)

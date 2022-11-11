@@ -5,9 +5,17 @@
         </li>
 {% endblock %}
 {% block content %}
-        <h1>Название: {{ task.title }}</h1>
-        <p>Статус: {{ task.get_status_display }}</p>
-        <p>Содержание: {{ task.details }}</p>
-        <p>Дата выполнения: {{ task.deadline }}</p>
-        <hr>
+    <div class="card text-center">
+          <div class="card-header">
+            Название: {{ task.title }}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Статус: {{ task.get_status_display }}</h5>
+            <p class="card-text" style="white-space: pre-wrap">{{ task.details }} </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+          <div class="card-footer text-muted">
+            Дата выполнения: {{ task.deadline }}
+          </div>
+    </div>
 {% endblock %}
