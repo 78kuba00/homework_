@@ -3,6 +3,12 @@
     <li class="nav-item">
           <a class="nav-link" aria-current="page" href="{% url 'task_add' %}">Add Task</a>
         </li>
+    <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'task_update' task.pk %}">Update Task</a>
+        </li>
+    <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'task_delete' task.pk %}">Delete Task</a>
+        </li>
 {% endblock %}
 {% block content %}
     <div class="card text-center">
@@ -12,7 +18,7 @@
           <div class="card-body">
             <h5 class="card-title">Статус: {{ task.get_status_display }}</h5>
             <p class="card-text" style="white-space: pre-wrap">{{ task.details }} </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+{#            <a href="#" class="btn btn-primary">Go somewhere</a>#}
           </div>
           <div class="card-footer text-muted">
             Дата выполнения: {{ task.deadline }}

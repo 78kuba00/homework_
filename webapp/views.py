@@ -51,3 +51,23 @@ def task_view(request, pk):
 #     task = Task.objects.get(pk=pk)
 #     task.delete()
 #     return redirect('index', pk=task.pk)
+
+def task_update_view(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+    if request.method == "GET":
+        return render(request, 'task_update.html', {'task': task})
+    elif request.method == "POST":
+        task.title = request.POST.get('title')
+        task.status = request.POST.get('status')
+        task.details = request.POST.get('details')
+        task.deadline = request.POST.get('deadline')
+        if not task.deadline:
+            task.deadline = None
+        task.save()
+        return redirect('task_view', pk=task.pk)
+
+def task_delete_view(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+    task.delete()
+    return redirect('index')
+
